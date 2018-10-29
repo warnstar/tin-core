@@ -1,5 +1,5 @@
 {
-    "name": "warnstar/tin",
+    "name": "warnstar/tin-core",
     "description": "swoole http server",
     "type": "library",
     "license": "MIT",
