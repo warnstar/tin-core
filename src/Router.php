@@ -52,11 +52,11 @@ class Router
      * @param string $routeStr
      * @return null|Route
      */
-    public function getRouteByPattern(string $pattern)
+    public function getRouteByPattern(Route $route)
     {
-        if ($pattern) {
+        if ($route) {
             foreach ($this->routes as $v) {
-                if ($v->getRoute() == $pattern) {
+                if ($v->getRoute() == $route->getRoute() && $v->getMethod() == $route->getMethod()) {
                     return $v;
                 }
             }
@@ -114,7 +114,7 @@ class Router
         $route = new Route($method, $pattern, $callable, $this->curRouteGroup, $this->routeCounter);
 
         // 检查路由是否合法
-        if ($this->getRouteByPattern($route->getRoute())) {
+        if ($this->getRouteByPattern($route)) {
             throw  new \Exception(sprintf('当前路由已注册：%s', $route->getRoute()));
         }
 
