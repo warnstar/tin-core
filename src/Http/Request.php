@@ -174,11 +174,11 @@ class Request extends Message implements ServerRequestInterface
     }
 
     /**
-     * @param string $var
+     * @param string $content
      * @throws HttpInterruptException
      * @throws \Tin\Exception\ExitException
      */
-    public function endShow(string $var)
+    public function endShow(string $content)
     {
         $this->response->write($content);
         $this->response->end();
